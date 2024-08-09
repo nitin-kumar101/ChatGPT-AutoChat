@@ -8,13 +8,9 @@ import undetected_chromedriver as uc
 from selenium.webdriver.support.ui import WebDriverWait
 from fake_useragent import UserAgent
 from selenium.webdriver.support import expected_conditions as EC
-from extract_examples import Extract_Examples
 
-ext = Extract_Examples()
-lst = [a for a in range(310,400)]
-x,sentences = ext.prompt_examples(2,lst)
-prompt =  "Consider you are an excellent linguist and you are given a task of predicting NER tags in road accident related tweets. The NER tags are time ('TIME'), person or people ('PER'), organization ('ORG'), location ('LOC'), vehicles ('VEHICLE'), reason of accident ('REASON'), incident occured ('INCIDENT') and impact due to accident ('IMPACT'). give output of the final input by taking reference to the examples. use @@ and ## to cover the entity and strictly use the format mentioned in examples. don't output any extra things. below are some examples: "+str(x)
-prompt = prompt+str(sentences)+" [OUTPUT: "
+
+prompt =  "Give your custom prompt here"
 # print(prompt)
 
 op = webdriver.ChromeOptions()
@@ -25,9 +21,9 @@ op.add_experimental_option("excludeSwitches", ["enable-logging"])
 
 driver = uc.Chrome(chrome_options=op)
 
-MAIL = "*********************"
+MAIL = "*******************"
 PASSWORD = "***********"
-PATH = "/home/imnitin/code_snippets/tweets_scrapping/chromedriver"
+PATH = "path you your chrome driver"
 
 driver.get('https://chat.openai.com/auth/login')
 
